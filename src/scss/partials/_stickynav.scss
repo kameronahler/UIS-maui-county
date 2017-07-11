@@ -1,0 +1,98 @@
+/* ================================
+
+Sticky Nav
+
+==================================*/
+
+#section-header {
+    &.nav-scrolling {
+        @include bp(md){
+            // site header general
+            #zone-header-wrapper {
+                height: 64px;
+                top: 0;
+                width: 100%;
+                float: none;
+                position: fixed;
+                background: rgba(255, 255, 255, .98)
+            }
+
+            // branding area
+            #region-branding {
+                display: block;
+                height: 64px;
+                width: 25%!important;
+                padding: 0;
+                margin: 0;
+                clear: none;
+                position: relative
+            }
+            .branding-data {
+                // margin-top: 0;
+                width: 100%!important;
+                // min-height: initial
+            }
+            #region-branding #block-search-form,
+            #region-branding .logo-img {
+                @include hide;
+            }
+            
+            // main nav
+            #region-header-second {
+                float: right;
+                display: block;
+                height: 64px;
+                width: 75% !important;
+                margin: 0;
+                padding: 0;
+                clear: none
+            }
+            #block-system-main-menu {
+                padding: 18px 0 0;
+            }
+            #block-system-main-menu > div > div .menu > li > a {
+                // font-size: .875em!important
+            }
+            #block-system-main-menu .sub-menu {
+                border: none;
+                padding: 0;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, .1)
+            }
+            // h1,
+            // h2 {
+            //     display: inline
+            // }
+            h1.site-name a,
+            h2.site-name a {
+                font-size: 0
+            }
+            h1.site-name a::before,
+            h2.site-name a::before {
+                @include absolute(8px,0);
+                content: "";
+                display: block;
+                background: #fff url('http://wearemaui.dev.engagingplans.org/sites/wearemaui.dev.engagingplans.org/files/styles/site_logo/public/logo.png?itok=dVBu5tcu') center no-repeat;
+                background-size: contain;
+                // margin: auto;
+                height: 47px;
+                width: 100%;
+                // font-size: initial
+            }
+            #block-system-main-menu .sub-menu li {
+                padding: .5em;
+                border-bottom: 1px solid rgba(42, 106, 169, .1)
+            }
+            #block-system-main-menu .sub-menu li:last-child {
+                border-bottom: initial
+            }
+        }
+    }
+}
+
+#section-content {
+    &.nav-scrolling {
+        @include bp(md) {
+            padding-top: 133px!important
+        }
+    }
+}

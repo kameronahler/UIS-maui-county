@@ -3,3 +3,60 @@
 Timeline
 
 ==================================*/
+
+.timeline{
+	/* --------------
+	main list
+	----------------*/
+	background:#fff;
+	padding:15px;
+	margin-left:0;
+	list-style:none;
+
+	/* --------------
+	li
+	----------------*/
+	&__item{
+
+	}
+
+	/* --------------
+	header
+	----------------*/
+	&__item-header{
+		margin-bottom:1em;
+	}
+	&__item-h2{
+		text-align:center;
+	}
+
+	/* --------------
+	image
+	----------------*/
+	&__item-img{
+		display:block;
+		max-width:100%;
+		margin:0 auto 1em;
+	}
+
+	/* --------------
+	description
+	----------------*/
+	&__item-description{
+	}
+
+	/* --------------
+	button
+	----------------*/
+	&__item-button-wrapper{
+		text-align:right;
+		margin-bottom:2em;
+
+		@media screen and (min-width:30em){
+			text-align:center;
+		}
+	}
+	&__item-button{
+		@include button;
+	}
+}
