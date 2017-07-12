@@ -1,15 +1,19 @@
 /* ================================
 
-Timeline
+Timeline Mobile
 
 ==================================*/
 
-.timeline{
+.timeline-mobile{
+	// hide on MD and up
+	@include bp(md){
+		display:none;
+		visibility:hidden;
+	}
+
 	/* --------------
 	main list
 	----------------*/
-	background:#fff;
-	padding:15px;
 	margin-left:0;
 	list-style:none;
 
@@ -26,17 +30,17 @@ Timeline
 	&__item-header{
 		margin-bottom:1em;
 	}
-	&__item-h2{
+	&__item-header-h2{
 		text-align:center;
 	}
 
 	/* --------------
-	image
+	li
 	----------------*/
 	&__item-img{
 		display:block;
-		max-width:100%;
-		margin:0 auto 1em;
+		max-width:275px;
+		margin:0 auto 15px;
 	}
 
 	/* --------------

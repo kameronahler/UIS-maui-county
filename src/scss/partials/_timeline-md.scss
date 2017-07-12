@@ -1,0 +1,156 @@
+/* ================================
+
+Timeline MD+
+
+==================================*/
+// hide stuff before md
+.timeline-4up,
+.timeline-4up__description{
+	display:none;
+	visibility:hidden;
+}
+
+.timeline-4up{
+	display:none;
+	visibility:hidden;
+
+	@include bp(md){
+		display:block;
+		visibility:visible;
+	}	
+
+	// MD+ only
+	@include bp(md){
+		@include reset-box-sizing-all;
+
+		/* --------------
+		timeline-4up main list
+		----------------*/
+		@include flex(stretch,flex-start,flex-start);
+		position:relative;
+		overflow:hidden;
+		margin-left:0;
+		margin-bottom:1em;
+		list-style:none;
+		background:transparent url('https://unsplash.it/1600/800?image=663') center no-repeat;
+		background-size:cover;
+
+		/* --------------
+		li
+		----------------*/
+		&__item{
+			position:relative;
+			z-index:1;
+			height:100%;
+			width:100%;
+		}
+
+		/* --------------
+		decoration li
+		----------------*/
+		&__decoration-bg{
+			@include absolute(0,0);
+			transform-origin:0 0;
+			z-index:0;
+			height:100%;
+			width:25%;
+			transition:$transition-3 .1s;
+		}
+
+		/* --------------
+		header
+		----------------*/
+		&__item-header{
+			padding:1em 1em;
+			display:block;
+			width:100%;
+			margin-bottom:150px;
+		}
+		&__item-header-h2{
+			text-align:center;
+		}
+
+		/* --------------
+		footer
+		----------------*/
+		&__item-footer{
+			align-self:flex-end;
+			padding:1em 1em;
+			display:block;
+			width:100%;
+		}
+		&__item-footer-h2{
+			text-align:center;
+		}
+
+		/* --------------
+		description ul
+		----------------*/
+		&__description{
+			list-style:none;
+			margin-left:0;
+			position:relative;
+			height:100px;
+			display:block;
+			visibility:visible
+		}
+
+		/* --------------
+		description item
+		----------------*/
+		&__description-item{
+			@include absolute(0,0);
+			list-style:none;
+			margin-left:0;
+			margin-bottom:15px;
+			transform:translateY(2em);
+			opacity:0;
+			visibility:hidden;
+		}
+
+		/* --------------
+		description button
+		----------------*/
+		&__description-button-wrapper{
+			text-align:center;
+		}
+		&__description-button{
+			@include button;
+		}
+
+		/* --------------
+		interactions
+		----------------*/
+
+
+		// hover
+		&__item{
+			&:not(.js-active):hover{
+				cursor:pointer;
+			}
+
+			@include timelineitemhoverinteraction(one,1,$color-timeline-1);			
+			@include timelineitemhoverinteraction(two,2,$color-timeline-2);			
+			@include timelineitemhoverinteraction(three,3,$color-timeline-3);			
+			@include timelineitemhoverinteraction(four,4,$color-timeline-4);
+
+			@include timelineitemactiveinteraction(one,1,$color-timeline-1);			
+			@include timelineitemactiveinteraction(two,2,$color-timeline-2);			
+			@include timelineitemactiveinteraction(three,3,$color-timeline-3);			
+			@include timelineitemactiveinteraction(four,4,$color-timeline-4)
+		}
+
+		// click js active
+		&__item{
+			&.js-active{}
+		}
+		&__description-item{
+			&.js-active{
+				opacity:1;
+				visibility:visible;
+				transform:translateY(0);
+				transition: 1s ease;
+			}
+		}	
+	}
+}

@@ -1,6 +1,6 @@
 //mixins
 @mixin bp($bp) {
-    // 320
+    // 480
     @if $bp=='xs' {
         @media screen and (min-width: 30em) {
             @content
@@ -115,3 +115,27 @@
     padding:1em 1.5em;
     border-radius:4px;
 }
+
+// hover
+@mixin timelineitemhoverinteraction($item,$percent,$color){
+    &--#{$item}{
+        &:hover{
+            & ~ .timeline-4up__decoration-bg{
+                transform:scaleX($percent) !important;
+                background:$color !important;
+            }
+        }
+    }
+}     
+
+// active
+@mixin timelineitemactiveinteraction($item,$percent,$color){
+    &--#{$item}{
+        &.js-active{
+            & ~ .timeline-4up__decoration-bg{
+                transform:scaleX($percent);
+                background:$color;
+            }
+        }
+    }
+}           

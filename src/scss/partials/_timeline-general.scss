@@ -1,0 +1,27 @@
+/* ================================
+
+Timeline General
+
+==================================*/
+// main wrapper
+.timelines{
+	padding:15px;
+	background:#fff;
+}
+.timeline-intro{
+	margin-bottom:0;	
+	z-index:0;
+	
+	@include bp(md){
+		margin-top:25px;
+	}
+
+	&__h2{
+		text-align:center;
+		line-height:1.2;
+		margin-bottom:1em;
+	}
+	&__lead{
+		margin-bottom:1em;
+	}
+}

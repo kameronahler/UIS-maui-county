@@ -1,4 +1,4 @@
-/* @override http://wearemaui.dev.engagingplans.org/sites/wearemaui.dev.engagingplans.org/files/css_injector/css_injector_1.css?osxtat */
+/* @override http://wearemaui.dev.engagingplans.org/sites/wearemaui.dev.engagingplans.org/files/css_injector/css_injector_1.css?osxvt9 */
 
 /* ================================
 
@@ -69,4 +69,6 @@ Project Specific
 
 ==================================*/
 @import "partials/stickynav";
-@import "partials/timeline";
+@import "partials/timeline-general";
+@import "partials/timeline-xs";
+@import "partials/timeline-md";
