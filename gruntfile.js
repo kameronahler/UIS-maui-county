@@ -40,7 +40,7 @@ module.exports = function(grunt) {
         px_to_rem: {
             dev: {
                 options: {
-                    base:16,
+                    base:13,
                     fallback: false,
                     fallback_existing_rem: false,
                     max_decimals:5,
@@ -57,7 +57,7 @@ module.exports = function(grunt) {
             },
             build: {
                 options: {
-                    base:16,
+                    base:13,
                     fallback: false,
                     fallback_existing_rem: false,
                     max_decimals:5,
