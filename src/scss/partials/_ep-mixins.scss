@@ -133,7 +133,7 @@
     &--#{$item}{
         &.js-active{
             & ~ .timeline-4up__decoration-bg{
-                transform:scaleX($percent);
+                width:25% * $percent;
                 background:linear-gradient(90deg, rgba($color,.5), rgba($color,.875));
             }
         }

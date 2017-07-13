@@ -11,6 +11,8 @@ $color-timeline-1:#ab47bc;
 $color-timeline-2:#26c6da;
 $color-timeline-3:#9ccc65;
 $color-timeline-4:#ffca28;
+$color-description-card-text:rgba(black,.625);
+$color-card-overlay:rgba(black,.25);
 
 // transitions
 $transition-1:.2s ease;
@@ -19,4 +21,4 @@ $transition-3:.5s ease;
 $transition-4:1s ease;
 
 // box shadows
-$box-shadow-description-cards: 0 6px 4px -3px rgba(black,.2);
+$box-shadow-description-cards: 0 4px 8px -4px rgba(black,.17);
