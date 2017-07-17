@@ -35,12 +35,35 @@ Timeline Mobile
 	}
 
 	/* --------------
-	li
+	img
 	----------------*/
 	&__item-img{
 		display:block;
 		max-width:275px;
 		margin:0 auto 15px;
+	}
+
+	&__item{
+		&--one{
+			.timeline-mobile__item-img-wrapper{
+				background: $color-timeline-1
+			}
+		}
+		&--two{
+			.timeline-mobile__item-img-wrapper{
+				background: $color-timeline-2
+			}
+		}
+		&--three{
+			.timeline-mobile__item-img-wrapper{
+				background: $color-timeline-3
+			}
+		}
+		&--four{
+			.timeline-mobile__item-img-wrapper{
+				background: $color-timeline-4
+			}
+		}
 	}
 
 	/* --------------

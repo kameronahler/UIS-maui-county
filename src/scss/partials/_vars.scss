@@ -5,14 +5,19 @@ Maui County Vars
 ==================================*/
 
 // colors
-$color-1:#29accd;
-$color-2:green;
-$color-timeline-1:#ab47bc;
-$color-timeline-2:#26c6da;
-$color-timeline-3:#9ccc65;
-$color-timeline-4:#ffca28;
-$color-description-card-text:rgba(black,.625);
-$color-card-overlay:rgba(black,.25);
+$color-1:#ff5000;
+$color-2:#703331;
+$color-timeline-1:adjust-hue($color-1, 30deg);
+$color-timeline-card-1:lighten(adjust-hue($color-1, 30deg),15%);
+$color-timeline-2:adjust-hue($color-1, 20deg);
+$color-timeline-card-2:lighten(adjust-hue($color-1, 20deg),15%);
+$color-timeline-3:adjust-hue($color-1, 10deg);
+$color-timeline-card-3:lighten(adjust-hue($color-1, 10deg),15%);
+$color-timeline-4:$color-1;
+$color-timeline-card-4:lighten($color-1,15%);
+$color-description-card-text:rgba(black,.875);
+$color-timeline-header:#fff;
+$color-card-overlay:rgba($color-2,1);
 
 // transitions
 $transition-1:.2s ease;
@@ -22,3 +27,4 @@ $transition-4:1s ease;
 
 // box shadows
 $box-shadow-description-cards: 0 4px 8px -4px rgba(black,.17);
+$box-shadow-timeline: 0 8px 16px -6px rgba(black,.17);

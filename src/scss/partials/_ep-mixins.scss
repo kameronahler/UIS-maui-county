@@ -122,7 +122,7 @@
         &:hover{
             & ~ .timeline-4up__decoration-bg{
                 transform:scaleX($percent) !important;
-                background:linear-gradient(90deg, rgba($color,.5), rgba($color,.875)) !important;
+                background:linear-gradient(90deg, rgba($color,.75), rgba($color,.95)) !important;
             }
         }
     }
@@ -134,7 +134,7 @@
         &.js-active{
             & ~ .timeline-4up__decoration-bg{
                 width:25% * $percent;
-                background:linear-gradient(90deg, rgba($color,.5), rgba($color,.875));
+                background:linear-gradient(90deg, rgba($color,.75), rgba($color,.95));
             }
         }
     }

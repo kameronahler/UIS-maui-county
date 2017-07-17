@@ -15,11 +15,6 @@ Timeline MD+
 	display:none;
 	visibility:hidden;
 
-	@include bp(md){
-		display:block;
-		visibility:visible;
-	}	
-
 	// MD+ only
 	@include bp(md){
 		@include reset-box-sizing-all;
@@ -28,24 +23,31 @@ Timeline MD+
 		timeline-4up main list
 		---------------- */
 		@include flex(center,flex-start);
+		visibility:visible;
+		background:#f8f8f8;
 		position:relative;
 		margin-left:0;
-		margin-bottom:1em;
+		margin-bottom:2em;
 		list-style:none;
-		background:#fafafa;
-		box-shadow: $box-shadow-description-cards;
+		box-shadow: $box-shadow-timeline;
 
 		/* --------------
 		start/end header
 		----------------*/
 		&__header{
 			@include flex;
+			font-family:QuicksandBold, sans-serif;
+			text-transform:uppercase;
+			margin-bottom:.5em;
+			color:$color-2;
 		}
 		&__header-start{
-			margin-right:auto
+			margin-right:auto;
+			padding-left:1em;
 		}
 		&__header-end{
-			margin-left:auto
+			margin-left:auto;
+			padding-right:1em;
 		}
 
 		/* --------------
@@ -53,7 +55,7 @@ Timeline MD+
 		----------------*/
 		&__item{
 			position:relative;
-			z-index:2;
+			z-index:10;
 			height:100%;
 			width:25%;
 
@@ -63,13 +65,13 @@ Timeline MD+
 				content:"";
 				width:100%;
 				height:4px;
-				background:$color-description-card-text;
+				background:$color-timeline-header;
 				opacity:0;
 			}
 		}
 
 		/* --------------
-		decoration li
+		decoration lis
 		----------------*/
 		&__decoration-bg{
 			@include absolute(0,0);
@@ -80,6 +82,28 @@ Timeline MD+
 			transform:translateZ(0);
 			transition:$transition-3 .1s;
 		}
+		&__background{
+			@include absolute(0,0);
+			display:inline-block;
+			z-index:2;
+			width:100%;
+			height:100%;
+
+			svg{
+				padding-top:3em;
+				width:100%;
+				height:auto;
+			}
+
+			#phase1,
+			#phase2,
+			#phase3,
+			#phase4{
+				transform:translateY(0);
+				opacity:.5;
+				transition:$transition-1 .3s;
+			}
+		}
 
 		/* --------------
 		header
@@ -87,7 +111,7 @@ Timeline MD+
 		&__item-header{
 			display:block;
 			width:100%;
-			min-height:250px;
+			min-height:270px;
 		}
 		&__item-header-h2{
 			padding:1em 1em;
@@ -95,7 +119,7 @@ Timeline MD+
 			font-size: 1em;
 			text-transform: uppercase;
 			background:$color-card-overlay;
-			color:$color-description-card-text;
+			color:$color-timeline-header;
 		}
 
 		/* --------------
@@ -113,7 +137,7 @@ Timeline MD+
 			line-height:1.2;
 			text-transform: uppercase;
 			min-height:58px;
-			color:$color-description-card-text;
+			color:$color-timeline-header;
 			background:$color-card-overlay
 		}
 
@@ -143,22 +167,22 @@ Timeline MD+
 			// color variations for flex children cards
 			&--one{
 				.timeline-4up__description-wrapper{
-					background:$color-timeline-1
+					background:$color-timeline-card-1
 				}
 			}
 			&--two{
 				.timeline-4up__description-wrapper{
-					background:$color-timeline-2
+					background:$color-timeline-card-2
 				}
 			}
 			&--three{
 				.timeline-4up__description-wrapper{
-					background:$color-timeline-3
+					background:$color-timeline-card-3
 				}
 			}
 			&--four{
 				.timeline-4up__description-wrapper{
-					background:$color-timeline-4
+					background:$color-timeline-card-4
 				}
 			}
 		}
@@ -167,14 +191,14 @@ Timeline MD+
 		description flex-children cards
 		----------------*/
 		&__description-wrapper{
-			padding:1em;
-			width:calc(33.33334% - 0.66667em);
+			padding:1.5em;
+			width:calc(33.33334% - 1.33334em);
 			box-shadow: $box-shadow-description-cards;
 			transform:translateY(3em);
 			opacity:0;
 
 			&:nth-child(2){
-				margin:0 1em;
+				margin:0 2em;
 			}
 		}
 
@@ -210,7 +234,7 @@ Timeline MD+
 		&__description-header-h2{
 			@include reset-box-sizing;
 			display:inline-block;
-			vertical-align:top;
+			vertical-align:middle;
 			line-height:1.2;
 			color:$color-description-card-text;
 			width:100%;
@@ -238,6 +262,7 @@ Timeline MD+
 		/* --------------
 		interactions
 		----------------*/
+		// hover
 		&__decoration-bg{
 			&:hover{
 				cursor:pointer !important;
@@ -246,7 +271,7 @@ Timeline MD+
 		}
 		&__item{
 			&:hover{
-				background:rgba(black,.1);
+				background:rgba(black,.05);
 				transition: background $transition-3 .1s;
 				cursor:pointer !important;
 			}
@@ -255,14 +280,77 @@ Timeline MD+
 			@include timelineitemactiveinteraction(two,2,$color-timeline-2);			
 			@include timelineitemactiveinteraction(three,3,$color-timeline-3);			
 			@include timelineitemactiveinteraction(four,4,$color-timeline-4)
+
+			&--one{
+				&:hover ~ .timeline-4up__background{
+					#phase1{
+						opacity:1;
+					}
+				}
+			}
+			&--two{
+				&:hover ~ .timeline-4up__background{
+					#phase2{
+						opacity:1;
+					}
+				}
+			}
+			&--three{
+				&:hover ~ .timeline-4up__background{
+					#phase3{
+						opacity:1;
+					}
+				}
+			}
+			&--four{
+				&:hover ~ .timeline-4up__background{
+					#phase4{
+						opacity:1;
+					}
+				}
+			}
 		}
+
 
 		// click js active
 		&__item{
 			&.js-active{
 				&::before{
-					opacity:1;
+					opacity:.5;
 					transition:$transition-3;
+				}
+			}
+
+			&--one.js-active{
+				~ .timeline-4up__background{
+					#phase1{
+						opacity:1;
+						transform:translateY(-2em)
+					}
+				}
+			}
+			&--two.js-active{
+				~ .timeline-4up__background{
+					#phase2{
+						opacity:1;
+						transform:translateY(-2em)
+					}
+				}
+			}
+			&--three.js-active{
+				~ .timeline-4up__background{
+					#phase3{
+						opacity:1;
+						transform:translateY(-2em)
+					}
+				}
+			}
+			&--four.js-active{
+				~ .timeline-4up__background{
+					#phase4{
+						opacity:1;
+						transform:translateY(-2em)
+					}
 				}
 			}
 		}
@@ -276,16 +364,25 @@ Timeline MD+
 					opacity:1;
 
 					&--purpose{
-						transition:$transition-4 .1s;
+						transition:$transition-3 .5s;
 					}
 					&--products{
-						transition:$transition-4 .4s;
+						transition:$transition-3 .8s;
 					}
 					&--yourvoice{
-						transition:$transition-4 .7s;
+						transition:$transition-3 1.1s;
 					}
 				}
 			}
 		}	
+	}
+
+	// LG only
+	@include bp(lg){
+		&__background{
+			svg{
+				padding-top:0;
+			}
+		}
 	}
 }
