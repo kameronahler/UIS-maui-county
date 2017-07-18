@@ -3,9 +3,22 @@
 Timeline General
 
 ==================================*/
+//fix to bpi sections since we moved the timeline below brightpages stuff
+.node-type-bpi-intro article.node-bpi-intro{
+	@include bp(md){
+		padding-bottom:0;
+	}
+}
+
+.node-type-bpi-intro{
+	.share-links{
+		display:none;
+	}
+}
+
 // main wrapper
 .timelines{
-	padding:15px;
+	padding:0 15px;
 	background:#fff;
 }
 .timeline-intro{
@@ -13,7 +26,7 @@ Timeline General
 	z-index:0;
 	
 	@include bp(md){
-		margin-top:25px;
+		// margin-top:25px;
 	}
 
 	&__h2{
